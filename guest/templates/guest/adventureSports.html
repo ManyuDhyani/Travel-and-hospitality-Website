@@ -1,0 +1,31 @@
+{% extends 'guest/base.html' %}
+{% block title %} Adventure Sports {% endblock %}
+{% block content %}
+<div class="adv-sport">
+  <h1>ADVENTURE SPORTS</h1>
+    {% for sport in sports %}
+  <div class="sport1 container">
+    <h2>{{sport.head}}</h2>
+    <img src="{{sport.image1.url}}">
+    <br>
+    <br>
+<p>{{sport.para1}}</p>
+      {% if sport.image2 %}
+<img src="{{sport.image2.url}}">
+    <br>
+    <br>
+      {% endif %}
+<p>{{sport.para2}}</p>
+  </div>
+{% endfor %}
+    <div class="patch-adv"> <h1>Want to have a Lifetime Experience?</h1>
+  <h4 class="subheading" style="font-family: 'Quicksand', sans-serif;">-To know about any upcoming event for adventure sports, Please click the button below.</h4>
+    <button onclick="location.href='{% url 'events' %}'" type="button" class="btn btn-primary btn-lg" id="query-btn">Upcoming Events -></button>
+        <br>
+          <h4 class="subheading" style="font-family: 'Quicksand', sans-serif;margin-top:10px;">-To create your customized package and know your estimate, click the button below.</h4>
+    <button onclick="location.href='{% url 'create_package' %}'" type="button" class="btn btn-primary btn-lg" id="query-btn">Create Package -></button>
+</div>
+</div>
+
+
+{% endblock %}

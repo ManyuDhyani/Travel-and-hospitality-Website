@@ -1,0 +1,204 @@
+{% extends 'guest/base.html' %}
+{% block title %} Traveloft {% endblock %}
+{% load static %}
+{% block content %}
+<style>
+.box{
+	background-color: White;
+}
+</style>
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>Explore To Know More</h3>
+        <p>dicover new places with us, adventure awaits</p>
+        <a href="#" class="btn">discover more</a>
+    </div>
+
+    <div class="video-container">
+        <video src="{% static 'images/index/vid-1.mp4' %}" id="video-slider" loop autoplay muted></video>
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- packages section starts  -->
+
+<section class="packages" id="packages">
+
+    <h1 class="heading">
+        <span>t</span>
+        <span>r</span>
+        <span>i</span>
+        <span>p</span>
+        <span>s</span>
+    </h1>
+
+    <div class="box-container">
+
+        {% for trek in treks %}
+        <div class="box">
+            <img src="{{trek.photo1.url}}" alt="">
+            <div class="content">
+                <h3> <i class="fas fa-map-marker-alt"></i> {{trek.title}} </h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam!</p>
+              			<div class="col-lg-12 mx-auto" style="margin-top:20px;">
+							<div class="row">
+								<ol class="col-7" style=""><i class="fas fa-mountain"></i> {{trek.altitude}}m</ol>
+    							<ol class="col-5"><i class="far fa-calendar-alt"></i> {{trek.duration_days}} days</ol>
+							</div>
+							<div class="row">
+								<ol class="col-7"><i class="fas fa-map-marker-alt"></i> {{trek.district}}</ol>
+
+    							<ol class="col-5"><i class="fas fa-hiking"></i> {{trek.difficulty}}</ol>
+							</div>
+						</div>
+                <div class="price"> ₹ {{trek.price}} <span>₹120.00</span> </div>
+                <a href="#" class="btn">book now</a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- packages section ends -->
+
+<!-- services section starts  -->
+
+<section class="services" id="services">
+
+    <h1 class="heading">
+        <span>s</span>
+        <span>e</span>
+        <span>r</span>
+        <span>v</span>
+        <span>i</span>
+        <span>c</span>
+        <span>e</span>
+        <span>s</span>
+    </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fa fa-home"></i>
+            <h3>Homestay</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-utensils"></i>
+            <h3>food and drinks</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-bullhorn"></i>
+            <h3>Trained Professionals</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-globe-asia"></i>
+            <h3>around UK</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-snowboarding"></i>
+            <h3>Adventure Sports</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-hiking"></i>
+            <h3>Experience the New</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- services section ends -->
+
+<!-- gallery section starts  -->
+
+<section class="gallery" id="gallery">
+
+    <h1 class="heading">
+        <span>g</span>
+        <span>a</span>
+        <span>l</span>
+        <span>l</span>
+        <span>e</span>
+        <span>r</span>
+        <span>y</span>
+    </h1>
+
+    <div class="box-container">
+        {% for photos in gallery %}
+        <div class="box">
+            <img src="images/g-1.jpg" alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#" class="btn">see more</a>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="box">
+            <img src="images/g-9.jpg" alt="">
+            <div class="content">
+                <h3>amazing places</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, tenetur.</p>
+                <a href="#" class="btn">see more</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- gallery section ends -->
+
+<!-- review section starts  -->
+
+<section class="review" id="review">
+
+    <h1 class="heading">
+        <span>T</span>
+        <span>e</span>
+        <span>s</span>
+        <span>t</span>
+        <span>i</span>
+        <span>m</span>
+        <span>o</span>
+        <span>n</span>
+        <span>i</span>
+        <span>a</span>
+        <span>l</span>
+        <span>s</span>
+    </h1>
+
+    <div class="swiper-container review-slider">
+
+        <div class="swiper-wrapper">
+        {% for review in reviews %}
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="{{review.profile_pic.url}}" alt="">
+                    <h3>{{review.title}}</h3>
+                    <p>{{review.review}}</p>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+
+    </div>
+
+</section>
+
+<!-- review section ends -->
+{% endblock %}

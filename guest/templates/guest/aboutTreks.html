@@ -1,0 +1,98 @@
+{% extends 'guest/base.html' %}
+{% block title %} About Trekking {% endblock %}
+{% block content %}
+<div class="community-work container">
+  <div class="community-heading">
+    <h1>What is Trekking?</h1>
+  </div>
+  <div class="community-wrap">
+    <img src="{{trek.image1.url}}">
+
+    <div class="community-paragraph">
+        <br>
+        <p>{{trek.para1}}</p><br>
+        <p>{{trek.paraE1}}</p>
+      <br>
+    </div>
+  </div>
+
+      <div class="community-heading">
+    <h1>The Himalayas</h1>
+          <br>
+  </div>
+   {% if trek.head1 %}
+<div class="about-chandrashila">
+  <h1>{{trek.head1}}</h1>
+  <div class="border-chandrashila"></div>
+    <p>{{trek.para2}}</p>
+        {% if trek.image2 %}
+            <br>
+            <div>
+                <img class="chopta-img" src="{{trek.image2.url}}">
+            </div>
+        {% endif %}
+    <br>
+        <p>{{trek.para3}}</p>
+
+        {% if trek.image3 %}
+    <br>
+            <div>
+                 <img class="chopta-img" src="{{trek.image3.url}}">
+            </div>
+        {% endif %}
+    <br>
+
+        <p>{{trek.para4}}</p>
+
+</div>
+    {% endif %}
+   {% if trek.head2 %}
+<div class="about-chandrashila">
+  <h1>{{trek.head2}}</h1>
+  <div class="border-chandrashila"></div>
+    <p>{{trek.para5}}</p>
+        {% if trek.image4 %}
+            <br>
+            <div>
+                <img class="chopta-img" src="{{trek.image4.url}}">
+            </div>
+        {% endif %}
+    <br>
+        <p>{{trek.para6}}</p>
+
+        {% if trek.image5 %}
+    <br>
+            <div>
+                 <img class="chopta-img" src="{{trek.image5.url}}">
+            </div>
+        {% endif %}
+    <br>
+
+        <p>{{trek.para7}}</p>
+
+</div>
+{% endif %}
+   {% if trek.head3 %}
+<div class="about-chandrashila">
+  <h1>{{trek.head3}}</h1>
+  <div class="border-chandrashila"></div>
+    <p>{{trek.para8}}</p>
+        {% if trek.image6 %}
+            <br>
+            <div>
+                <img class="chopta-img" src="{{trek.image6.url}}">
+            </div>
+        {% endif %}
+    <br>
+        <p>{{trek.para9}}</p>
+
+    <br>
+
+        <p>{{trek.para10}}</p>
+
+</div>
+{% endif %}
+</div>
+<br>
+<br>
+{% endblock %}

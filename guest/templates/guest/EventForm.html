@@ -1,0 +1,85 @@
+{% extends 'guest/base.html' %}
+{% block title %} Upcoming Event Form {% endblock %}
+
+{% block content %}
+  <div class="form-container ">
+    <div class="wrapper">
+
+     <form class="registration-form" action="" method="post">
+       {% csrf_token %}
+		{% if msg.msg_s%}
+			<div class="alert alert-success" role="alert">
+				{{msg.msg_s}}
+			</div>
+		{% endif %}
+		{% if msg.msg_f%}
+			<div class="alert alert-danger" role="alert">
+				{{msg.msg_f}}
+			</div>
+		{% endif %}
+        <h3>Personal Details</h3>
+      <div class="input-name">
+    <label>Name:</label>
+    <input type="text" name="Name" class="registration-form-text" placeholder="Full Name (optional)">
+    <label style="margin-left:10%;">Email*:</label>
+    <input type="email" name="Email" class="registration-form-text" placeholder="Email *" required>
+  </div>
+
+  <div class="input-number">
+    <label>Mobile: </label>
+    <input type="text" name="Mobile" class="registration-form-text" placeholder="(optional)">
+    <label style="margin-left:10%;">Place:</label>
+    <input type="text" name="Place" class="registration-form-text" placeholder="From (optional)">
+  </div>
+  <div class="package">
+  <div>
+    <h3 id="package-head">Create Your Package</h3>
+  </div>
+
+<p style="color:red;font-family:'Quicksand', sans-serif; margin-left:30%; ">*To create package select minimum of one Trek / Adventure Sport / Village Tour. </p>
+
+  <div class="input-adults">
+    <label>Number Of People:</label>
+      <input type="number" name="Number_of_people" value="1" min="1" max="200">
+  </div>
+  <div class="input-tours">
+    <label style="margin-right:10px;">Event*:</label>{{reg.event}}
+  </div>
+
+</div>
+<div class="disclaimer container">
+<h5>Notify you with your Package Estimation on:</h5>
+<p>*By Default you will be Notified on your Email. </p>
+<p>*To get Notification on Platform other than Email, Please Select from following Options Below. </p>
+<p>*Our team will reach out to you within 48 hours.</p><br>
+      <div>
+    <label>Modes: </label>{{reg.notify_on}}
+  </div>
+
+    <br>
+    <br>
+    <p>{{reg.terms_confirmed}}<label style="margin-right:5px;Font-size:14px">&nbsp; I agree to the <a href="{% url 'terms' %}">Terms and Conditions</a> &  <a href="{% url 'privacy' %}">Privacy Policy</a>.</label>  </p>
+
+
+		{% if msg.msg_s%}
+			<div class="alert alert-success" role="alert">
+				{{msg.msg_s}}
+			</div>
+		{% endif %}
+		{% if msg.msg_f%}
+			<div class="alert alert-danger" role="alert">
+				{{msg.msg_f}}
+			</div>
+		{% endif %}
+<div class="registration-btn">
+    <input  type="submit" class="registration-form-btn" value="Submit"><br>
+  </div>
+    </div>
+  </form>
+
+  </div>
+
+</div>
+
+
+{% endblock %}

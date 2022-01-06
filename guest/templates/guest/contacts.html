@@ -1,0 +1,48 @@
+{% extends 'guest/base.html' %}
+{% load static %}
+{% block title %} Contacts Us {% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<h1 class="heading"><strong>CONTACT US</strong>
+	</h1>
+	<br><br>
+
+<div class="row">
+	<div class="col-md-6 contactinfo">
+		<h1>TRAVELOFT INDIA</h1>
+		<p class="para">
+		{{contact.address}}.<br> Pin- {{contact.pin_code}}<br>
+		Phone number- {{contact.mobile_1}} / {{contact.mobile_2}}<br>
+		Time: {{contact.time_am}} AM to {{contact.time_pm}}<br>
+		<a  href="{% url 'inquiry' %}">www.traveloftindia.com/inquiry</a>
+		</p>
+		<br>
+		<br>
+		<h1>For Internship/Jobs</h1>
+		<p>
+			Mobile: {{contact.mobile_job_1}}, {{contact.mobile_job_2}}<br>
+			Time: {{contact.time_job_am}} AM to {{contact.time_job_pm}} PM<br>
+			<a  href="{% url 'career' %}">www.traveloftindia.com/career</a>
+		</p>
+		</div>
+		<div class="col-md-6 contactimg">
+		<img  src="{% static 'images/contacts/logotraveloft.png' %}">
+		</div>
+
+		<div class="col-md-6 himlay-info contactinfo">
+		<h3>SITE BY HIMLAY</h3>
+		<p>
+			Contact us: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=himlaytechnologies@gmail.com">himlaytechnologies@gmail.com</a>
+		</p>
+	</div>
+	<div class="col-md-6 himlay-img ">
+		<img src="{% static 'images/contacts/newhimlayv25.png' %}">
+	</div>
+
+
+</div>
+</div>
+{% endblock %}
+

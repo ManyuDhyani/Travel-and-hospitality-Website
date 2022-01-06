@@ -1,0 +1,276 @@
+{% extends 'guest/base.html' %}
+{% load cache %}
+{% block title %} Traveloft {% endblock %}
+
+{% block content %}
+{% cache 30 home %}
+<!--slider-->
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel" style="height:auto;">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      {% if slider.image3 %}
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      {% endif %}
+      {% if slider.image4 %}
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      {% endif %}
+      {% if slider.image5 %}
+    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+      {% endif %}
+      {% if slider.image6 %}
+    <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+      {% endif %}
+  </ol>
+
+      <div class="carousel-inner">
+    <div class="carousel-item active" style="height:800px">
+      <img  id="first" src='{{slider.image1.url}}' class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Traveloft India</h5>
+        <p>Explore To Know More.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item" style="height:800px;">
+      <img  src="{{slider.image2.url}}" class="d-block w-100" alt="...">
+    </div>
+
+          {% if slider.image3 %}
+        <div class="carousel-item" style="height:800px;">
+      <img  src="{{slider.image3.url}}" class="d-block w-100" alt="...">
+    </div>
+          {% endif %}
+
+          {% if slider.image4 %}
+        <div class="carousel-item" style="height:800px;">
+      <img  src="{{slider.image4.url}}" class="d-block w-100" alt="...">
+    </div>
+          {% endif %}
+          {% if slider.image5 %}
+    <div class="carousel-item" style="height:800px;">
+      <img  src="{{slider.image5.url}}" class="d-block w-100" alt="...">
+    </div>
+          {% endif %}
+          {% if slider.image6 %}
+    <div class="carousel-item" style="height:800px;">
+      <img  src="{{slider.image6.url}}" class="d-block w-100" alt="...">
+    </div>
+          {% endif %}
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <anuman class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </anuman>
+</div>
+
+
+<!--article-->
+<section class="latest-news-area" id="latest">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="section_title">
+          <div class="section_subtitle"></div>
+          <h1 id="news-heading"><strong>Latest Updates</strong></h1>
+        </div>
+      </div>
+    </div>
+    <br><br>
+		<!-- all articles -->
+		<div id='article' class="col-lg-12 mx-auto">
+			<div class="row mx-auto">
+				{% for article in articles %}
+				<div class="card art mx-auto mb-4" style="width: 330px;">
+                    <div class="news-img">
+					<img class="card-img-top" src="{{article.photo1.url}}" alt="Card image cap">
+                    <div class="deat">
+                        <h5>{{article.published_on}}</h5>
+                    </div>
+                </div>
+					<div class="news-content">
+                        <div class="content-theory">
+                            <p class="card-title"><b>{{article.title}}</b></p>
+					</div>
+                        <div class="article-author">
+                  <p>-{{article.Author}}</p>
+                </div>
+                                        <div class="btn-readmore">
+                <a href="/articles/{{article.slug}}">Read Article</a>
+              </div>
+				</div>
+
+			</div>
+                {% endfor %}
+		</div>
+  </div>
+  </div>
+</section>
+
+<!-- all Trek -->
+<div id="wrap">
+<div class="home-product-new-hldr">
+    <div class="slider-btn-hldr slider-btn-hldr-left">
+        <button id="left-btn" class="slider-btn" style="display:none;" >
+        <svg viewBox="0 0 256 256">
+            <polyline fill="none" stroke="#38d39f" stroke-width="50" points="184,16 72,128 184,240"></polyline>
+        </svg>
+    </button>
+    </div>
+
+    <h1 id="trek-heading"><strong> CHOOSE FROM OUR BEST TREKS</strong></h1>
+    <div class="home-product-new">
+        <div class="home-grid products-grid products-grid--max-4"  style="/*left: 50px; right:10px;*/">
+            {% for trek in treks %}
+            <div class="item-container">
+                <div class="card">
+                    <img  src="{{trek.photo1.url}}" class="card-img-top" alt="...">
+                    <div class="bottom-right-sticky" style="margin-top:0px;"><p class="bg-dark">&nbsp{{trek.difficulty}}</p></div>
+            		<div class="card-body" style="padding-left:0px;">
+              			<h5 class="card-title" style="margin-left:5px;">{{trek.title}}</h5>
+
+              			<div class="col-lg-12 mx-auto" style="margin-top:20px;">
+							<div class="row">
+								<ol class="col-7" style=""><i class="fas fa-mountain"></i> {{trek.altitude}}m</ol>
+    							<ol class="col-5"><i class="far fa-calendar-alt"></i> {{trek.duration_days}} days</ol>
+							</div>
+							<div class="row">
+								<ol class="col-7"><i class="fas fa-map-marker-alt"></i> {{trek.district}}</ol>
+
+    							<ol class="col-5"><i class="fas fa-rupee-sign"></i> {{trek.price}}</ol>
+							</div>
+						</div>
+						<div class="row mx-auto justify-content-center">
+								<a href="/treks/{{trek.slug}}" class="text-center text-success">View Trek</a>
+						</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+    <div class="slider-btn-hldr slider-btn-hldr-right">
+        <button id="right-btn" class="slider-btn" style="display: block;">
+        <svg viewBox="0 0 256 256">
+            <polyline fill="none" stroke="#38d39f" stroke-width="50" points="72,16 184,128 72,240"></polyline>
+        </svg>
+    </button>
+    </div>
+</div>
+</div>
+    <!--All trek button-->
+        <div>
+            <button onclick="location.href='{% url 'treks' %}'" type="button" class="btn btn-warning btn-lg vertical-center">View All Treks</button></th>
+        </div>
+
+<!-- Query -->
+<div class="patch"> <h1>Do you have any doubts?</h1>
+  <h4 id="subheading">Feel free to reach us out.</h4>
+    <button onclick="location.href='{% url 'inquiry' %}'" type="button" class="btn btn-primary btn-lg" id="query-btn">I have a query</button>
+</div>
+
+
+<!-- all Village Tour -->
+<section class="latest-news-area" id="latest">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="section_title">
+          <div class="section_subtitle"></div>
+          <h1 id="news-heading"><strong>OUR BEST VILLAGE TOURS</strong></h1>
+        </div>
+      </div>
+    </div>
+    <br><br>
+  </div>
+		<!-- all articles -->
+		<div class="col-lg-12 mx-auto">
+			<div class="row mx-auto">
+				{% for village in villages %}
+                <div id="village" class="card col-lg-3 mx-auto">
+                    <img  src="{{village.photo1.url}}" class="card-img-top" alt="...">
+            		<div class="bottom-right-sticky" style="margin-top:0px;"><p class="bg-dark">&nbsp{{village.district}}</div>
+            		<div class="card-body" style="padding-left:0px;">
+              			<h5 class="card-title" style="margin-left:5px;">{{village.title}}</h5>
+              		<div class="col-lg-12 mx-auto" style="margin-top:20px;">
+							<div class="row">
+								<ol class="col-7" style=""><i class="fas fa-mountain"></i> {{village.altitude}}m</ol>
+    							<ol class="col-5"><i class="far fa-calendar-alt"></i> {{village.duration_days}} days</ol>
+							</div>
+							<div class="row">
+								<ol class="col-7"><i class="fas fa-user-friends"></i> {{village.population}}</ol>
+    							<ol class="col-5"><i class="fas fa-rupee-sign"></i> {{village.price}}</ol>
+							</div>
+						</div>
+						<div class="row mx-auto justify-content-center">
+								<a href="/village-tours/{{village.slug}}" class="text-center text-success">View Village Tour</a>
+						</div>
+                </div>
+            </div>
+                {% endfor %}
+		</div>
+  </div>
+</section>
+
+    <!--All Village button-->
+
+    <div>
+        <button onclick="location.href='{% url 'VillageTours' %}'" type="button" class="btn btn-warning btn-lg vertical-center-v">View All Village Tours</button></th>
+    </div>
+
+<!-- Query -->
+<div class="patch"> <h1>Still Can't Decide?</h1>
+  <h4 id="subheading">Check out Mesmerizing sceneries of Mountains, Valleys, Villages.</h4>
+    <button onclick="location.href='{% url 'gallery' %}'" type="button" class="btn btn-primary btn-lg" id="query-btn">Visit Our Gallery</button>
+</div>
+
+
+<!-- Review -->
+    <section class="latest-news-area" id="latest">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="section_title">
+          <div class="section_subtitle"></div>
+          <h1 id="news-heading"><strong> Testimonials </strong></h1>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <div class="container col-lg-12 mx-auto">
+			<div class="row mx-auto">
+            {% for review in reviews %}
+                <div class="card bg-light mx-auto mb-3" id={{article.id}} style="width: 330px;padding:10px;">
+                    <div style="padding:10px;">
+                <p style="text-align: justify;font-family: 'Quicksand', sans-serif;">
+                    <i class="fa fa-quote-left u-color"></i>&nbsp;
+                    {{review.review}}.
+                    &nbsp;<i class="fa fa-quote-right u-color"></i>
+                </p>
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="user-about"> <span class="font-weight-bold d-block">{{review.title}}</span> <span class="u-color">{{review.place}}</span></div>
+                    <div class="user-image"> <img src="{{review.profile_pic.url}}" class="rounded-circle" width="70"> </div>
+                </div>
+                    </div>
+				</div>
+            {% endfor %}
+    </div>
+  </div>
+</div>
+    </section>
+
+    <!--All Testimonials button-->
+        <div>
+            <button onclick="location.href='{% url 'testimonials' %}'" type="button" class="btn btn-warning btn-lg vertical-center">View All Testimonials</button></th>
+        </div>
+    <br>
+</div>
+{% endcache%}
+{% endblock %}

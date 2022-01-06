@@ -1,0 +1,81 @@
+{% extends 'guest/base.html' %}
+{% block title %} About Us {% endblock %}
+
+{% block content %}
+
+
+<div>
+<img src="{{about.image1.url}}" style="width:100%; height:600px;">
+<h1 id="about-heading">ABOUT&nbsp TRAVELOFT</h1>
+</div>
+<div class="about-content">
+	<h1>OUR STORY </h1>
+    {% if about.image2 %}
+	<img src="{{about.image2.url}}" style="vertical-align: middle">
+    {% endif %}
+	<p>{{about.para1}}</p><br>
+    <p>{{about.para2}}</p>
+</div>
+
+<div class="responsible">
+	<h1 id="responsible-heading"> RESPONSIBLE TOURISM</h1>
+	<p class="separated-line">{{about.para3}}</p>
+	{% if about.image3 %}
+    <img src="{{about.image3.url}}">
+    {% endif %}
+	<p>{{about.para4}} </p>
+ <br>
+ <p>{{about.para5}}</p>
+ <br>
+    {% if about.image4 %}
+ <img src="{{about.image4.url}}" style="width:85%;margin-left:6%;">
+    {% endif %}
+ <br>
+ <br>
+ <h1 id="sustaining">SUSTAINING COMMUNITIES</h1>
+ <p class="separated-line">{{about.para6}}</p>
+    {% if about.image5 %}
+<img src="{{about.image5.url}}">
+    {% endif %}
+<br>
+<p>{{about.para7}}</p>
+<br>
+    {% if about.image6 %}
+<img src="{{about.image6.url}}">
+    {% endif %}
+<br>
+<br>
+<h1 id="our-team">OUR TEAM</h1>
+<br>
+    {% if about.image7L %}
+<img src="{{about.image7L.url}}" style="width:40%; ">
+    {% endif %}
+    {% if about.image8R %}
+<img src="{{about.image8R.url}}" style="width:40%;">
+    {% endif %}
+<br>
+    <p>{{about.para8}}</p>
+<br>
+    {% if about.image9 %}
+<img src="{{about.image9.url}}">
+    {% endif %}
+<br>
+<br>
+<h1 id="work-us">WORK FOR US </h1>
+<br>
+<p>{{about.para9}}</p>
+<br>
+    {% if about.image10 %}
+<img src="{{about.image10.url}}">
+    {% endif %}
+    <br>
+    <p>{{about.para10}}</p>
+    <br>
+
+</div>
+
+
+<br>
+<br>
+<br>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'guest/base.html' %}
+
+{% block title %} Search Results {% endblock %}
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="section_title">
+          <div class="section_subtitle"></div>
+          <h1 id="news-heading"><strong>Search Results</strong></h1>
+            {% if lt == 0 and lv == 0 %}
+                <p>Your search -<b> {{query}} </b>- did not match any documents.<br>
+
+                <br>Suggestions:<br>
+
+                <br>•Make sure that all words are spelled correctly.
+                <br>•Try different keywords.
+                <br>•Try more general keywords.
+                <br>•Try fewer keywords.</p>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+    <br><br>
+   {% if lt > 0 %}
+<h3><strong>Treks:</strong></h3><br>
+      {% endif %}
+      <!--trek-->
+    <div class="col-lg-12 mx-auto">
+    <div class="row mx-auto">
+      {% for trek in treks %}
+        <div class="card mx-auto mb-4" style="width: 18rem;">
+        <img class="card-img-top" src="{{trek.photo1.url}}" alt="Card image cap">
+         <div class="card-body">
+        <h5 class="card-title">{{trek.title}}</h5>
+         <p class="card-text">{{trek.district}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">Altitude:&nbsp;{{trek.altitude}}m</li>
+        <li class="list-group-item">Duration:&nbsp;{{trek.duration_days}}&nbsp;days</li>
+        <li class="list-group-item">Price:&nbsp; ₹ {{trek.price}}</li>
+        </ul>
+        <div class="card-body">
+        <a href="{% url 'create_package' %}" class="card-link">Booking</a>
+        <a href="/treks/{{trek.slug}}" class="card-link">View Detail</a>
+        </div>
+        </div>
+    {% endfor %}
+    </div>
+    </div>
+
+   {% if lv >  0 %}
+<h3><strong>Village Tours:</strong></h3><br>
+      {% endif %}
+            <!--village-->
+    <div class="col-lg-12 mx-auto">
+    <div class="row mx-auto">
+      {% for village in villages %}
+        <div class="card mx-auto mb-4" style="width: 18rem;">
+        <img class="card-img-top" src="{{village.photo1.url}}" alt="Card image cap">
+         <div class="card-body">
+        <h5 class="card-title">{{village.title}}</h5>
+         <p class="card-text">{{village.district}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">Altitude:&nbsp;{{village.altitude}}m</li>
+        <li class="list-group-item">Duration:&nbsp;{{village.duration_days}}&nbsp;days</li>
+        <li class="list-group-item">Price:&nbsp; ₹ {{village.price}}</li>
+        </ul>
+        <div class="card-body">
+        <a href="{% url 'create_package' %}" class="card-link">Booking</a>
+        <a href="/village-tours/{{village.slug}}" class="card-link">View Detail</a>
+        </div>
+        </div>
+    {% endfor %}
+    </div>
+    </div>
+</div>
+<br>
+<br>
+
+{% endblock %}

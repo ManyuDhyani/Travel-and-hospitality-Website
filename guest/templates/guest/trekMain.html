@@ -1,0 +1,56 @@
+{% extends 'guest/base.html' %}
+{% block title %} Treks {% endblock %}
+{% block content %}
+
+<!-- body -->
+<div class="container-fluid mt-3">
+	<div class="row">
+
+
+		<!-- filter -->
+
+		<div class="col-lg-3 mx-auto">
+			<div class="list-group">
+
+				<a href="/treks" class="list-group-item list-group-item-action">All Treks</a>
+
+				{% for category in categories %}
+				<a href="/treks?category={{category.id}}"
+					class="list-group-item list-group-item-action">{{category.district}}</a>
+				{% endfor %}
+				<a href="{% url 'abouttrek' %}" class="list-group-item list-group-item-action">About Trekking</a>
+			</div>
+		</div>
+
+		<!-- Treks -->
+		<div id='trek' class="col-lg-9 mx-auto">
+			<div class="row mx-auto">
+				{% for trek in treks %}
+                <div class="card first card mx-auto mb-3" style="width: 330px;">
+          			<img  src="{{trek.photo1.url}}" class="card-img-top" alt="...">
+            		<div class="bottom-right-sticky" style="margin-top:0px;"><p class="bg-dark">&nbsp{{trek.difficulty}}</p></div>
+            		<div class="card-body" style="padding-left:0px;">
+              			<h5 class="card-title" style="margin-left:5px;">{{trek.title}}</h5>
+
+              			<div class="col-lg-12 mx-auto" style="margin-top:20px;">
+							<div class="row">
+								<ol class="col-7" style=""><i class="fas fa-mountain"></i> {{trek.altitude}}m</ol>
+    							<ol class="col-5"><i class="far fa-calendar-alt"></i> {{trek.duration_days}} days</ol>
+							</div>
+							<div class="row">
+								<ol class="col-7"><i class="fas fa-map-marker-alt"></i> {{trek.district}}</ol>
+
+    							<ol class="col-5"><i class="fas fa-rupee-sign"></i> {{trek.price}}</ol>
+							</div>
+						</div>
+						<div class="row mx-auto justify-content-center">
+								<a href="/treks/{{trek.slug}}" class="text-center text-success">View Trek</a>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+		</div>
+	</div>
+</div>
+</div>
+{% endblock %}

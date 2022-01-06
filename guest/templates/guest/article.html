@@ -1,0 +1,36 @@
+{% extends 'guest/base.html' %}
+{% block title %} {{article.title}} {% endblock %}
+{% block content %}
+<div class="about-content">
+	<h1>{{article.title}} </h1>
+	<img src="{{article.photo1.url}}" style="vertical-align: middle">
+	<div  class="termspara">
+	<p>
+		{{article.description1}}
+	</p>
+	</div>
+	<br>
+	<br>
+
+	{% if article.photo2 %}
+	<img src="{{article.photo2.url}}">
+	{% endif %}
+
+	{% if article.description2 %}
+	<div  class="termspara">
+	<p>
+		{{article.description2}}
+	</p>
+	</div>
+	{% endif %}
+	<br>
+</div>
+<div class="responsible">
+<h3 id="responsible-heading">Author- {{article.Author}}</h3>
+</div>>
+
+<br>
+<br>
+<br>
+
+{% endblock %}

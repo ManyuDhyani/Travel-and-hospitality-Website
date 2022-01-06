@@ -1,0 +1,115 @@
+{% extends 'guest/base.html' %}
+{% block title %} {{trek.title}} {% endblock %}
+{% block content %}
+
+<div class="container">
+<div class="chopta">
+	<h1>{{trek.title}}</h1>
+</div>
+
+<div>
+	<img class="chopta-img" src="{{trek.photo1.url}}">
+</div>
+<div class="row">
+	<div class="col-md-2 col-sm-6 characterstics">
+		<i class="fas fa-mountain icon-color"></i>  {{trek.altitude}}m
+	</div>
+	<div class="col-md-2 col-sm-6 characterstics">
+		<i class="far fa-calendar-alt icon-color"></i>  {{trek.duration_days}} days
+		</div>
+	<div class="col-md-2 col-sm-6 characterstics">
+		 <i class="fas fa-balance-scale-left icon-color"></i>  {{trek.difficulty}}
+	</div>
+
+	<div class="col-md-2 col-sm-6 characterstics">
+		<p><i class="fas fa-map-marker-alt icon-color"></i>  {{trek.district}}</p>
+	</div>
+	<div class="col-md-2 col-sm-6 characterstics" id="character-distance">
+		<p><i class="fas fa-hiking icon-color"></i> {{trek.distance}}km</p>
+	</div>
+	<div class="col-md-2 col-sm-6 characterstics">
+		<i class="fas fa-rupee-sign icon-color"></i>  ₹ {{trek.price}}
+	</div>
+</div>
+<table>
+	<tr>
+	<th><h1 id="itinerary" align="left">DAY TO DAY ITINERARY </h1></th>
+	<th><button onclick="location.href='{% url 'create_package' %}'" type="button" class="btn btn-warning btn-lg" style="margin-left:40px;">Create Package</button></th>
+	</tr>
+</table>
+
+<blockquote>
+<table class="table">
+	<thead>
+		<th>DAYS</th>
+		<th>DESCRIPTION</th>
+	</thead>
+	<tbody>
+	{% for itinerary in itineraries %}
+		<tr>
+			<td>Day&nbsp;{{forloop.counter}}</td>
+			<td style="vertical-align: :top;"> - {{itinerary.days}}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+</blockquote>
+{% if trek.quote %}
+<div class="thought">
+	<h5><i class="fas fa-quote-left"></i>  {{trek.quote}} <i class="fas fa-quote-right"></i></h5>
+
+</div>
+{% endif %}
+
+
+<div class="about-chandrashila">
+	<h1>ABOUT</h1>
+	<div class="border-chandrashila"></div>
+	<p>{{trek.desc1}}</p>
+
+	{% if trek.photo2 %}
+	<br>
+	<br>
+	<div>
+		<img class="chopta-img" src="{{trek.photo2.url}}">
+	</div>
+	<br>
+	<br>
+	{% endif %}
+
+	<p>{{trek.desc2}}</p>
+
+	{% if trek.photo3 %}
+	<br>
+	<br>
+	<div>
+		<img class="chopta-img" src="{{trek.photo3.url}}">
+	</div>
+	<br>
+	<br>
+	{% endif %}
+
+	<p>{{trek.desc3}}</p>
+
+	{% if trek.photo4 %}
+	<br>
+	<br>
+	<div>
+	<img class="chopta-img" src="{{trek.photo4.url}}">
+	</div>
+	<br>
+	<br>
+	{% endif %}
+
+	<p>{{trek.desc4}}</p>
+	</div>
+
+</div>
+	<!-- Query -->
+<div class="patch"> <h1>What are you Waiting For?</h1>
+  <h4 id="subheading">Create your Customized Package and Know your Trip Estimation.</h4>
+    <button onclick="location.href='{% url 'create_package' %}'" type="button" class="btn btn-primary btn-lg" id="query-btn">Create Package</button>
+
+
+
+{% endblock %}

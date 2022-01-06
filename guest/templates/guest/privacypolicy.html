@@ -1,0 +1,31 @@
+{% extends 'guest/base.html' %}
+
+{% block title %} Privacy Policy {% endblock %}
+
+{% block content %}
+
+<div class="container">
+<div class="terms">
+  <h2><b>Privacy Policy<b></h2>
+  {% for policy in policies %}
+    <div class="subheading">
+      <h4> &nbsp {{policy.heading}}</h4>
+    </div>
+    <div class="termspara">
+      <p>{{policy.para1}}</p>
+      {% if policy.para2 %}
+      <p>{{policy.para2}}</p>
+      {% endif %}
+      {% if policy.para3 %}
+      <p>{{policy.para3}}</p>
+      {% endif %}
+      {% if policy.para4 %}
+      <p>{{policy.para4}}</p>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+</div>
+
+{% endblock %}
+

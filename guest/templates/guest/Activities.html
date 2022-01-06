@@ -1,0 +1,36 @@
+{% extends 'guest/base.html' %}
+
+{% block title %} Activities {% endblock %}
+
+{% block content %}
+<div class="row">
+      <div class=" activities-box col-lg-6 col-md-12 col-sm-12">
+          <img id="grid1" src="{{photos.trekking.url}}">
+          <div class="grid-text">
+        <a href="{% url 'treks' %}"><h1 style="font-size:3em;"> <strong>TREKKING</strong> </h1></a>
+      </div>
+      </div>
+      <div class="activities-box col-lg-6 col-md-12 col-sm-12">
+          <img id="grid2" src="{{photos.village_Tour.url}}">
+          <div class="grid-text">
+        <a href="{% url 'VillageTours' %}"><h1 style="font-size:3em;"> <strong> VILLAGE TOUR</strong> </h1></a>
+      </div>
+      </div>
+      <div class="activities-box col-lg-6 col-md-12 col-sm-12">
+          <img id="grid3" src="{{photos.adventure_Sports.url}}">
+          <div class="grid-text">
+        <a href="{% url 'adventure_manyu' %}"><h1 style="font-size:3em;"> <strong>ADVENTURE SPORTS</strong> </h1></a>
+        </div>
+      </div>
+      <div class="activities-box col-lg-6 col-md-12 col-sm-12">
+          <img id="grid4" src="{{photos.community_Work.url}}">
+          <div class="grid-text">
+        <a href="{% url 'community' %}"><h1 style="font-size:3em;"> <strong>COMMUNITY WORK</strong> </h1></a>
+      </div>
+      </div>
+</div>
+
+<br>
+<br>
+
+{% endblock %}

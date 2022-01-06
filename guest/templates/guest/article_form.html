@@ -1,0 +1,138 @@
+{% extends 'guest/base.html' %}
+
+{% block title %} Article Form {% endblock %}
+
+{% block content %}
+
+<br>
+<br>
+<div class="container">
+<form method="POST" action="article-form" enctype='multipart/form-data'>
+
+
+	{% csrf_token %}
+
+	{% if msg.msg_s%}
+			<div class="alert alert-success" role="alert">
+				{{msg.msg_s|escape}}
+			</div>
+	{% endif %}
+	{% if msg.msg_f%}
+			<div class="alert alert-danger" role="alert">
+				{{msg.msg_f|escape}}
+			</div>
+	{% endif %}
+
+	Title*:
+	{% if article.title.errors %}
+		{% for error in article.title.errors %}
+				<div class="alert alert-danger">
+                	<strong>{{ error|escape }}</strong>
+            	</div>
+		{% endfor %}
+	{% endif %}
+	<input class="form-control" type="text" name="title" placeholder="Article Title">
+<br>
+<br>
+	<div class="form-group">
+    	<label>Image Input*</label>
+		{% if article.photo1.errors %}
+		{% for error in article.photo1.errors %}
+				<div class="alert alert-danger">
+                	<strong>{{ error|escape }}</strong>
+            	</div>
+		{% endfor %}
+	{% endif %}
+		<input type="file" class="form-control-file" name="photo1">
+	</div>
+<br>
+<br>
+	<div class="form-group">
+    	<label>Paragraph 1*</label>
+			{% if article.description1.errors %}
+		{% for error in article.description1.errors %}
+				<div class="alert alert-danger">
+                	<strong>{{ error|escape }}</strong>
+            	</div>
+		{% endfor %}
+	{% endif %}
+    	<textarea class="form-control" name="description1" rows="10" placeholder="Start Writing from here...."></textarea>
+  	</div>
+<br>
+<br>
+	<div class="form-group">
+    	<label>Image Input (Optional)</label>
+		{% if article.photo2.errors %}
+		{% for error in article.photo2.errors %}
+				<div class="alert alert-danger">
+                	<strong>{{ error|escape }}</strong>
+            	</div>
+		{% endfor %}
+	{% endif %}
+    	<input type="file" class="form-control-file" name="photo2">
+  	</div>
+<br>
+<br>
+	<div class="form-group">
+    	<label>Paragraph 2 (Optional)</label>
+			{% if article.description2.errors %}
+		{% for error in article.description2.errors %}
+				<div class="alert alert-danger">
+                	<strong>{{ error|escape }}</strong>
+            	</div>
+		{% endfor %}
+	{% endif %}
+    	<textarea class="form-control" name="description2" rows="10" placeholder="Start Writing from here....(Optional)"></textarea>
+  	</div>
+<br>
+<br>
+	Author*:
+	{% if article.Author.errors %}
+		{% for error in article.Author.errors %}
+				<div class="alert alert-danger">
+                	<strong>{{ error|escape }}</strong>
+            	</div>
+		{% endfor %}
+	{% endif %}
+	<input class="form-control" type="text" name="Author" placeholder="Author Name">
+<br>
+<br>
+	Author Email*:
+	{% if article.Author_email.errors %}
+		{% for error in article.Author_email.errors %}
+				<div class="alert alert-danger">
+                	<strong>{{ error|escape }}</strong>
+            	</div>
+		{% endfor %}
+	{% endif %}
+	<input class="form-control" type="text" name="Author_email" placeholder="Author Email">
+<br>
+<br>
+		{% if article.errors %}
+    		{% for error in article.non_field_errors %}
+        		<div class="alert alert-danger">
+					<strong>{{ error|escape }}</strong>
+        		</div>
+    		{% endfor %}
+		{% endif %}
+
+
+	{% if msg.msg_s%}
+			<div class="alert alert-success" role="alert">
+				{{msg.msg_s|escape}}
+			</div>
+	{% endif %}
+	{% if msg.msg_f%}
+			<div class="alert alert-danger" role="alert">
+				{{msg.msg_f|escape}}
+			</div>
+	{% endif %}
+
+	<input class="contact-form-btn btn btn-primary" type="submit" name="Update Information">
+</form>
+</div>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

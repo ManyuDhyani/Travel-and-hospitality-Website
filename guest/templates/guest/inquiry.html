@@ -1,0 +1,92 @@
+{% extends 'guest/base.html' %}
+
+{% block title %} inquiry {% endblock %}
+
+{% block content %}
+
+<div class="inquiry-section">
+	<h1><mark style="color:yellow;">INQUIRY</mark></h1>
+
+	<form class="contact-form" action="inquiry" method="post">
+		{% csrf_token %}
+
+		{% if msg.msg_s%}
+			<div class="alert alert-success" role="alert">
+				{{msg.msg_s|escape}}
+			</div>
+		{% endif %}
+		{% if msg.msg_f%}
+			<div class="alert alert-danger" role="alert">
+				{{msg.msg_f|escape}}
+			</div>
+		{% endif %}
+
+		Name:
+		{% if form.Name.errors %}
+			{% for error in form.Name.errors %}
+				<div class="alert alert-danger">
+                	<strong>{{ error|escape }}</strong>
+            	</div>
+			{% endfor %}
+        {% endif %}
+		<input type="text" class="contact-form-text" placeholder="Name (optional)" name="Name">
+
+
+		Email*:
+		{% if form.Email.errors %}
+			{% for error in form.Email.errors %}
+				<div class="alert alert-danger">
+                	<strong>{{ error|escape }}</strong>
+            	</div>
+			{% endfor %}
+        {% endif %}
+		<input type="email" class="contact-form-text" placeholder="Email *" name="Email" >
+
+
+		Mobile:
+		{% if form.Mobile.errors %}
+			{% for error in form.Mobile.errors %}
+				<div class="alert alert-danger">
+                	<strong>{{ error|escape }}</strong>
+            	</div>
+			{% endfor %}
+        {% endif %}
+		<input type="text" class="contact-form-text" placeholder="Phone number (optional)" name="Mobile">
+
+
+		Message*:
+		{% if form.Msg.errors %}
+			{% for error in form.Msg.errors %}
+				<div class="alert alert-danger">
+                	<strong>{{ error|escape }}</strong>
+            	</div>
+			{% endfor %}
+        {% endif %}
+		<textarea class="contact-form-text" placeholder="Type your message here *" name="Msg"></textarea><br>
+
+		{% if form.errors %}
+    		{% for error in form.non_field_errors %}
+        		<div class="alert alert-danger">
+					<strong>{{ error|escape }}</strong>
+        		</div>
+    		{% endfor %}
+		{% endif %}
+
+
+		{% if msg.msg_s%}
+			<div class="alert alert-success" role="alert">
+				{{msg.msg_s|escape}}
+			</div>
+		{% endif %}
+		{% if msg.msg_f%}
+			<div class="alert alert-danger" role="alert">
+				{{msg.msg_f|escape}}
+			</div>
+		{% endif %}
+		<button type="submit" class="contact-form-btn" vlaue="send">Submit</button>
+
+	</form>
+</div>
+
+
+{% endblock %}

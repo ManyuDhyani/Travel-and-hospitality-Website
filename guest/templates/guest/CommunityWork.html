@@ -1,0 +1,102 @@
+{% extends 'guest/base.html' %}
+{% block title %} Community Work {% endblock %}
+
+{% block content %}
+
+<div class="community-work container">
+  <div class="community-heading">
+    <h1>COMMUNITY WORK</h1>
+  </div>
+  <div class="community-wrap">
+    <img src="{{community.image1.url}}">
+
+    <div id="community-quote"><p>“Let your hopes, not your hurts, shape your future.”</p>
+            <p> – Robert H. Schuller</p></div>
+    <div class="community-paragraph">
+        <p>{{community.para1}}</p><br>
+        <p>
+        {{community.paraE1}}</p><br>
+        1.<span class="sec">  {{community.line1}}</span><br>
+        2.<span class="sec"> {{community.line2}}</span><br>
+        3.<span class="sec"> {{community.line3}}</span><br><br>
+        {{community.paraE2}}
+      </p>
+      <br><br>
+    </div>
+  </div>
+   {% if community.head1 %}
+<div class="about-chandrashila">
+  <h1>{{community.head1}}</h1>
+  <div class="border-chandrashila"></div>
+    <p>{{community.para2}}</p>
+        {% if community.image2 %}
+            <br>
+            <div>
+                <img class="chopta-img" src="{{community.image2.url}}">
+            </div>
+        {% endif %}
+    <br>
+        <p>{{community.para3}}</p>
+
+        {% if community.image3 %}
+    <br>
+            <div>
+                 <img class="chopta-img" src="{{community.image3.url}}">
+            </div>
+        {% endif %}
+    <br>
+
+        <p>{{community.para4}}</p>
+
+</div>
+    {% endif %}
+   {% if community.head2 %}
+<div class="about-chandrashila">
+  <h1>{{community.head2}}</h1>
+  <div class="border-chandrashila"></div>
+    <p>{{community.para5}}</p>
+        {% if community.image4 %}
+            <br>
+            <div>
+                <img class="chopta-img" src="{{community.image4.url}}">
+            </div>
+        {% endif %}
+    <br>
+        <p>{{community.para6}}</p>
+
+        {% if community.image5 %}
+    <br>
+            <div>
+                 <img class="chopta-img" src="{{community.image5.url}}">
+            </div>
+        {% endif %}
+    <br>
+
+        <p>{{community.para7}}</p>
+
+</div>
+{% endif %}
+   {% if community.head3 %}
+<div class="about-chandrashila">
+  <h1>{{community.head3}}</h1>
+  <div class="border-chandrashila"></div>
+    <p>{{community.para8}}</p>
+        {% if community.image6 %}
+            <br>
+            <div>
+                <img class="chopta-img" src="{{community.image6.url}}">
+            </div>
+        {% endif %}
+    <br>
+        <p>{{community.para9}}</p>
+
+    <br>
+
+        <p>{{community.para10}}</p>
+
+</div>
+{% endif %}
+</div>
+<br>
+<br>
+{% endblock %}

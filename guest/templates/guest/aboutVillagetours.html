@@ -1,0 +1,93 @@
+{% extends 'guest/base.html' %}
+{% block title %} About Village Tours {% endblock %}
+{% block content %}
+<div class="community-work container">
+  <div class="community-heading">
+    <h1>Village Tours</h1>
+  </div>
+  <div class="community-wrap">
+    <img src="{{village.image1.url}}" style="width:100%;height:auto;">
+
+    <div class="community-paragraph">
+        <br>
+        <p>{{village.para1}}</p><br>
+        <p>{{village.paraE1}}</p>
+      <br>
+    </div>
+  </div>
+   {% if village.head1 %}
+<div class="about-chandrashila">
+  <h1>{{village.head1}}</h1>
+  <div class="border-chandrashila"></div>
+    <p>{{village.para2}}</p>
+        {% if village.image2 %}
+            <br>
+            <div>
+                <img class="chopta-img" src="{{village.image2.url}}">
+            </div>
+        {% endif %}
+    <br>
+        <p>{{village.para3}}</p>
+
+        {% if village.image3 %}
+    <br>
+            <div>
+                 <img class="chopta-img" src="{{village.image3.url}}">
+            </div>
+        {% endif %}
+    <br>
+
+        <p>{{village.para4}}</p>
+
+</div>
+    {% endif %}
+   {% if village.head2 %}
+<div class="about-chandrashila">
+  <h1>{{village.head2}}</h1>
+  <div class="border-chandrashila"></div>
+    <p>{{village.para5}}</p>
+        {% if village.image4 %}
+            <br>
+            <div>
+                <img class="chopta-img" src="{{village.image4.url}}">
+            </div>
+        {% endif %}
+    <br>
+        <p>{{village.para6}}</p>
+
+        {% if village.image5 %}
+    <br>
+            <div>
+                 <img class="chopta-img" src="{{village.image5.url}}">
+            </div>
+        {% endif %}
+    <br>
+
+        <p>{{village.para7}}</p>
+
+</div>
+{% endif %}
+   {% if village.head3 %}
+<div class="about-chandrashila">
+  <h1>{{village.head3}}</h1>
+  <div class="border-chandrashila"></div>
+    <p>{{village.para8}}</p>
+        {% if village.image6 %}
+            <br>
+            <div>
+                <img class="chopta-img" src="{{village.image6.url}}">
+            </div>
+        {% endif %}
+    <br>
+        <p>{{village.para9}}</p>
+
+    <br>
+
+        <p>{{village.para10}}</p>
+
+</div>
+{% endif %}
+</div>
+<br>
+<br>
+{% endblock %}

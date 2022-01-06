@@ -1,0 +1,141 @@
+{% extends 'guest/base.html' %}
+{% block title %} {{village.title}} {% endblock %}
+{% block content %}
+
+<div class="container">
+<div class="chopta">
+	<h1>{{village.title}}</h1>
+</div>
+
+<div>
+	<img class="chopta-img" src="{{village.photo1.url}}">
+</div>
+<div class="row">
+	<div class="col-md-2 col-sm-6 characterstics">
+		<i class="fas fa-mountain icon-color"></i>  {{village.altitude}}m
+	</div>
+	<div class="col-md-2 col-sm-6 characterstics">
+		<i class="far fa-calendar-alt icon-color"></i>  {{village.duration_days}} days
+		</div>
+	<div class="col-md-2 col-sm-6 characterstics" id="character-distance">
+		<p><i class="fas fa-hiking icon-color"></i> {{village.population}}</p>
+	</div>
+	<div class="col-md-2 col-sm-6 characterstics">
+		<p><i class="fas fa-map-marker-alt icon-color"></i>  {{village.district}}</p>
+	</div>
+	<div class="col-md-2 col-sm-6 characterstics">
+		<i class="fas fa-rupee-sign icon-color"></i>  ₹ {{village.price}}
+	</div>
+</div>
+
+<table>
+	<tr>
+	<th><h1 id="itinerary" align="left">DAY TO DAY ITINERARY </h1></th>
+	<th><button onclick="location.href='{% url 'create_package' %}'" type="button" class="btn btn-warning btn-lg" style="margin-left:440px;">Create Package</button></th>
+	</tr>
+</table>
+<blockquote>
+<table class="table">
+	<thead>
+		<th>DAYS</th>
+		<th>DESCRIPTION</th>
+	</thead>
+	<tbody>
+	{% for itinerary in itineraries %}
+		<tr>
+			<td>Day&nbsp;{{forloop.counter}}</td>
+			<td style="vertical-align: :top;"> - {{itinerary.days}}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+</blockquote>
+
+{% if village.quote %}
+<div class="thought">
+	<h5><i class="fas fa-quote-left"></i>  {{village.quote}} <i class="fas fa-quote-right"></i></h5>
+
+</div>
+{% endif %}
+
+
+<div class="about-chandrashila">
+	<h1>ABOUT Village</h1>
+	<div class="border-chandrashila"></div>
+	<p>{{village.desc1}}</p>
+	{% if village.photo2 %}
+	<br>
+	<br>
+	<div>
+		<img class="chopta-img" src="{{village.photo2.url}}">
+	</div>
+	<br>
+	<br>
+	{% endif %}
+	<p>{{village.desc2}}</p>
+	{% if village.photo3 %}
+	<br>
+	<br>
+	<div>
+		<img class="chopta-img" src="{{village.photo3.url}}">
+	</div>
+	<br>
+	<br>
+	{% endif %}
+	<p>{{village.desc3}}</p>
+	{% if village.photo4 %}
+	<br>
+	<br>
+	<div>
+	<img class="chopta-img" src="{{village.photo4.url}}">
+	</div>
+	<br>
+	<br>
+	{% endif %}
+	<p>{{village.desc4}}</p>
+	{% if village.photo5 %}
+	<br>
+	<br>
+	<div>
+		<img class="chopta-img" src="{{village.photo5.url}}">
+	</div>
+	<br>
+	<br>
+	{% endif %}
+	<p>{{village.desc5}}</p>
+	{% if village.photo6 %}
+	<br>
+	<br>
+	<div>
+		<img class="chopta-img" src="{{village.photo6.url}}">
+	</div>
+	<br>
+	<br>
+	{% endif %}
+	<p>{{village.desc6}}</p>
+	{% if village.photo7 %}
+	<br>
+	<br>
+	<img class="chopta-img" src="{{village.photo7.url}}">
+	</div>
+	<br>
+	<br>
+	{% endif %}
+	<p>{{village.desc7}}</p>
+	{% if village.photo8 %}
+	<br>
+	<br>
+	<img class="chopta-img" src="{{village.photo8.url}}">
+	</div>
+	<br>
+	<br>
+{% endif %}
+<div class="patch"> <h1>What are you Waiting For?</h1>
+  <h4 id="subheading">Create your Customized Package and Know your Trip Estimation.</h4>
+    <button onclick="location.href='{% url 'create_package' %}'" type="button" class="btn btn-primary btn-lg" id="query-btn">Create Package</button>
+</div>
+</div>
+
+</div>
+
+{% endblock %}

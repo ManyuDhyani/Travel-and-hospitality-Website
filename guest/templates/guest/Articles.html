@@ -1,0 +1,46 @@
+{% extends 'guest/base.html' %}
+
+{% block title %} Articles {% endblock %}
+
+{% block content %}
+
+<!-- body -->
+<div class="container-fluid mt-3">
+	<div class="row">
+
+
+		<!-- filter -->
+
+		<div class="col-lg-3 mx-auto">
+			<div class="list-group">
+
+				<a href="/articles" class="list-group-item list-group-item-action">All Articles</a>
+
+				{% for category in categories %}
+				<a href="/articles?category={{category.id}}"
+					class="list-group-item list-group-item-action">{{category.category}}</a>
+				{% endfor %}
+				<a href="{% url 'articleform' %}" class="list-group-item list-group-item-action">Contribute an article</a>
+			</div>
+		</div>
+
+		<!-- all articles -->
+		<div id='article' class="col-lg-9 mx-auto">
+			<div class="row mx-auto">
+				{% for article in articles %}
+				<div class="card mx-auto mb-4" id={{article.id}} style="width: 350px;">
+					<img class="card-img-top" src="{{article.photo1.url}}" alt="Card image cap">
+					<div class="card-body">
+						<p class="card-title">{{article.title}}</p>
+						<p class="card-text"><b>{{article.Author}}</b></p>
+						<a href="/articles/{{article.slug}}" class="text-success stretched-link">>>>Read Article</a>
+						<p class="card-text"><b>{{article.published_on}}</b></p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

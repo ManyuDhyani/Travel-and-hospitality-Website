@@ -1,0 +1,45 @@
+{% extends 'guest/base.html' %}
+
+{% block title %} Feedback {% endblock %}
+
+{% block content %}
+        <!-- Latest Posts -->
+        <main class="col-lg-12">
+          <div class="container">
+            <div class="row">
+              <!-- feedback -->
+              {% for review in testimonials %}
+                <div class="col-xl-4 pt-lg-3 pl-lg-2">
+                    <div class="card bg-light mx-auto mb-3" style="width: 330px;padding:10px;">
+                        <div style="padding:10px;">
+                        <p style="text-align: justify;font-family: 'Quicksand', sans-serif;">
+                            <i class="fa fa-quote-left u-color"></i>&nbsp;
+                            {{review.review}}.
+                            &nbsp;<i class="fa fa-quote-right u-color"></i>
+                        </p>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="user-about"> <span class="font-weight-bold d-block">{{review.title}}</span> <span class="u-color">{{review.place}}</span></div>
+                            <div class="user-image"> <img src="{{review.profile_pic.url}}" class="rounded-circle" width="70"> </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+              {% endfor %}
+            </div>
+            <!-- Pagination -->
+            <nav aria-label="Page navigation example">
+              <ul class="pagination pagination-template d-flex justify-content-center">
+                {% if testimonials.has_previous %}
+                <li class="page-item"><a href="?{{ page_request_variable }}={{ testimonials.previous_page_number }}" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+                {% endif %}
+                <li class="page-item"><a href="?{{ page_request_variable }}={{ testimonials.number }}" class="page-link active">{{ testimonials.number }}</a></li>
+                {% if testimonials.has_next %}
+                <li class="page-item"><a href="?{{ page_request_variable }}={{ testimonials.next_page_number }}" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+                {% endif %}
+              </ul>
+            </nav>
+          </div>
+        </main>
+        <br>
+{% endblock %}

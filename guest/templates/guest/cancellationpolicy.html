@@ -1,0 +1,24 @@
+{% extends 'guest/base.html' %}
+
+{% block title %} Cancellation Policy {% endblock %}
+
+{% block content %}
+
+<div class="container">
+<div class="policy">
+  <h1> &nbsp Cancellation Policy</h1>
+  {% for policy in policies %}
+  <ul class="dashed">
+    <li>&nbsp {{policy.point}}</li>
+  </ul>
+  {% endfor %}
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}

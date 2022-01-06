@@ -1,0 +1,152 @@
+{% extends 'guest/base.html' %}
+{% load static %}
+{% block title %} Career {% endblock %}
+
+{% block content %}
+<div class="wrap">
+<div class="box">
+		<div class="row">
+			<div class="col-lg-4 col-md-12 col-sm-12 nopadding">
+				<div class="thumbnail size" id="first-img">
+					<img class="img"  src="{% static 'images/jobs/split10.jpg' %}">
+					<div class="on-img1"><h3>JOB(s)</h3></div>
+					<div class="overlay">
+    					<div class="button"><a href="#click1"><button type="button" class="btn btn-secondary btn-lg apply-btn">APPLY</button></a></div>
+  					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-12 col-sm-12 nopadding">
+				<div class="thumbnail size " id="second-img">
+					<img class="img" src="{% static 'images/jobs/split11.jpg' %}">
+					<div class="on-img1"><h3>INTERNSHIP(s)</h3></div>
+					<div class="overlay">
+    					<div class="button"><a href="#click2"><button type="button" class="btn btn-secondary btn-lg apply-btn">APPLY</button></a></div>
+  					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-12 col-sm-12 nopadding">
+				<div class="thumbnail size" id="third-img">
+					<img class="img" src="{% static 'images/jobs/split12.jpg'%}">
+					<div class="on-img1"><h3>COMMUNITY &nbsp &nbsp &nbsp &nbsp &nbsp WORK</h3></div>
+					<div class="overlay">
+    					<div class="button"><a href="{% url 'community' %}"><button type="button" class="btn btn-secondary btn-lg apply-btn">APPLY</button></a></div>
+  					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+<!--<section class="wave">
+	<img class="undraw1-intern" src="undraw-intern.png">
+
+    					<div class="button job"><a href="#click1"><h1>JOB(s)</h1></a></div>
+    					<div class="button internship"><a href="#click1"><h1>INTERNSHIP(s)</h1></a></div>
+    					<div class="button community"><a href="#click1"><h1>COMMUNITY WORK</h1></a></div>
+</section>-->
+<!--<section></section>-->
+<div class="intern-data">
+	<div id="click2" class="work">
+		<h1> INTERNSHIP</h1>
+		<br>
+		<br>
+		<h2><strong>OUR WORK</strong></h2>
+		<p >
+			<i class="fas fa-caret-right"></i> Organising trek and tours in Uttarakhand and
+			Himachal Pradesh.<br><br>
+
+			<i class="fas fa-caret-right"></i> Providing adventure activities such as
+			Rappelling, Climbing, Bridge Slithering,
+			Rafting, Kayaking and many more.<br><br>
+
+			<i class="fas fa-caret-right"></i> We have a team of experienced mountain
+			guides certified from the best mountaineering
+			institutes in the country.<br><br>
+
+			<i class="fas fa-caret-right"></i> We also have local guides in our team so that
+			you do not miss on any important information
+			about the place.<br><br>
+
+			<i class="fas fa-caret-right"></i> Other staff includes porters, cooks, and
+			helpers.<br><br>
+		</p>
+		<h2><strong>INTERNSHIP DRIVE</strong></h2>
+		<p>
+			<i class="fas fa-caret-right"></i> Throughout this outdoor learning program we are mainly
+			focusing towards achieving our main goal which is
+			collecting additional data covering cultural, historical
+			and geographical aspects of the region.<br><br>
+
+			<i class="fas fa-caret-right"></i> We will be collecting data in form of written records,
+			photography and videography.<br><br>
+
+			<i class="fas fa-caret-right"></i> Giving chance to people of any age group to have an
+			amazing trekking experience while doing your work.<br><br>
+
+			<i class="fas fa-caret-right"></i> We will be conducting tour/trek cum learning programs
+			all year for people interested in some specified fields.<br><br>
+
+			<i class="fas fa-caret-right"></i> So both nature lovers and adventure enthusiasts have a
+			great opportunity on hand.<br><br>
+		</p>
+		<h2><strong>INTERNSHIP WHILE ON A TREK/TOUR</strong></h2>
+		<p>
+			<i class="fas fa-caret-right"></i> Content writing <br><br>
+			<i class="fas fa-caret-right"></i> Photography<br><br>
+			<i class="fas fa-caret-right"></i> Videography <br><br>
+			<i class="fas fa-caret-right"></i> Drone Photography <br><br>
+			<i class="fas fa-caret-right"></i> Historical and Geographical content
+		</p>
+		<h2><strong>INCLUSIONS</strong></h2>
+		<p>
+		<i class="fas fa-caret-right"></i> All basic travel and logistics requirements
+											would be taken care of by the company
+											for the trek/tour duration.<br><br>
+
+<i class="fas fa-caret-right"></i> All staying arrangements would be done
+									by the company during trek/tour
+									duration.<br><br>
+
+<i class="fas fa-caret-right"></i> Proper diet and meals will be provided
+									every day.<br><br>
+
+<i class="fas fa-caret-right"></i> The personal luggage will also be taken
+									care of by the porters working for the
+									company, only dedication toward our work
+									is required.<br><br>
+
+<i class="fas fa-caret-right"></i> Other recreational activities such as
+								bird-watching, flora tracking, stargazing
+								and many more would also be a part of
+								the daily routine.<br><br>
+
+<i class="fas fa-caret-right"></i> An experience certificate will be awarded
+								to each intern after the successful
+								completion of the trek/tour.
+    </p>
+
+    	<h2><strong>EXCLUSIONS</strong></h2>
+    	<p>
+    	<i class="fas fa-caret-right"></i> Travel expense from and back to
+										your respective city to the
+										commencing point of the
+										trek/tour will not be provided by
+										the company.<br><br>
+
+<i class="fas fa-caret-right"></i> Stay and food facilities for the
+									first (DAY 0) and the last (DAY
+									0) day.<br><br>
+
+<i class="fas fa-caret-right"></i> Money for personal stuff.
+    </p>
+</div>
+</div>
+<div class="intern-contact work">
+	<h1>CONTACT US</h1>
+	<p>
+		<strong>EMAIL</strong> - <a href="traveloftenquiry@gmail.com">traveloftenquiry@gmail.com</a><br><br>
+
+		<strong>Phone number</strong> - +918923542247, 7378737523.
+	</p>
+</div>
+
+{% endblock %}

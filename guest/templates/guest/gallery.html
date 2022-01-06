@@ -1,0 +1,64 @@
+{% extends 'guest/base.html' %}
+{% load embed_video_tags %}
+{% block title %} Gallery {% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-3">
+	<div class="row">
+		<!-- filter -->
+		<div class="col-lg-3 mx-auto">
+    		<div class="list-group">
+
+        	<a href="/gallery" class="list-group-item list-group-item-action">All Photos</a>
+
+        	{% for category in categories %}
+        	<a href="/gallery?category={{category.id}}" class="list-group-item list-group-item-action">{{category.category}}</a>
+        	{% endfor %}
+    		</div>
+		</div>
+
+		<!-- all articles -->
+		<div id='article' class="col-lg-9 mx-auto">
+			<div class="row mx-auto">
+				{% for photo in photos %}
+				<div class="card mx-auto mb-3" id={{photo.id}} style="width: 330px;">
+					<a href="{{photo.image.url}}"><img class="card-img-top gallery" src="{{photo.image.url}}" alt="Card image cap"></a>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		{% if youtube %}
+		<div class="col-lg-9 mx-auto">
+    		{% for i in youtube %}
+      			{% video i.video 'small' %}
+    		{% endfor %}
+		</div>
+		{% endif %}
+
+	{% if pages %}
+	<!--pagination-->
+	<div class="col-lg-9 mx-auto">
+		<nav aria-label="Page navigation example">
+  			<ul class="pagination justify-content-center">
+				{% if photos.has_previous %}
+    			<li class="page-item"><a class="page-link" href="{% url 'gallery' %}?page={{photos.previous_page_number}}">Previous</a></li>
+				{% endif %}
+				<li class="page-item page-link">
+            	Page {{ photos.number }} of {{ photos.paginator.num_pages }}
+        		</li>
+				{% if photos.has_next %}
+    			<li class="page-item"><a class="page-link" href="{% url 'gallery' %}?page={{photos.next_page_number}}">Next</a></li>
+				{% endif%}
+  			</ul>
+		</nav>
+		{% endif %}
+	</div>
+	</div>
+</div>
+
+<br>
+<br>
+
+{% endblock %}
+
