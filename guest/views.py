@@ -13,6 +13,7 @@ def home(request):
     slider = Main_Slider.objects.first()
     latest_updates = Articles.objects.filter(status='publish').order_by("-updated")[:6]
     treks = Trek.objects.filter(best=True)[:6]
+    Gallery = Gallery_photo.objects.all()[:4]
     village_tour = Village_Tours.objects.filter(best=True)[:4]
     reviews = Testimonials.objects.filter(status='publish').order_by("-updated")[:9]
     data = {
@@ -20,6 +21,7 @@ def home(request):
         'articles': latest_updates,
         'treks': treks,
         'villages': village_tour,
+        'gallery': Gallery,
         'reviews': reviews,
     }
     return render(request, "guest/index.html", data)
